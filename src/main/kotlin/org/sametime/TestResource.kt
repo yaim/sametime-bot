@@ -1,6 +1,6 @@
 package org.sametime
 
-import org.sametime.services.ConfigService
+import org.sametime.services.MessageService
 import javax.enterprise.context.ApplicationScoped
 import javax.inject.Inject
 import javax.transaction.Transactional
@@ -11,34 +11,11 @@ import javax.ws.rs.Path
 @ApplicationScoped
 class TestResource {
     @Inject
-    lateinit var config: ConfigService;
+    lateinit var message: MessageService;
 
     @GET
     @Transactional
     fun hello() {
-        MessageListener().listen(config.discordBotToken);
-
-//        val eventObject: Event =
-//            Event(
-//                "eventName",
-//                0.toLong(),
-//                1.toLong(),
-//                2.toLong(),
-//                3.toLong()
-//            )
-//
-//        println(eventObject.name)
-//
-//        eventObject.persist()
-//
-//        val event = Event.findByName("test event", 4)
-//
-//        if (event != null) {
-//            println(event.name)
-//            println(event.messageId)
-//            println(event.channelId)
-//            println(event.serverId)
-//            println(event.createdAt)
-//        }
+        message.listen();
     }
 }

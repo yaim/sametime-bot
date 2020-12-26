@@ -1,7 +1,6 @@
 package org.sametime
 
 import net.dv8tion.jda.api.EmbedBuilder
-import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.entities.ChannelType
 import net.dv8tion.jda.api.entities.Message
 import net.dv8tion.jda.api.entities.MessageEmbed
@@ -10,17 +9,8 @@ import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import org.sametime.services.EventService
 import java.awt.Color
-import javax.enterprise.context.ApplicationScoped
 
-@ApplicationScoped
 class MessageListener() : ListenerAdapter() {
-    fun listen(token: String) {
-        JDABuilder.createDefault(token)
-            .addEventListeners(MessageListener())
-            .build()
-            .awaitReady()
-    }
-
 /*
     override fun onGenericEvent(event: GenericEvent) {
         println("*************************************")
