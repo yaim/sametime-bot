@@ -9,8 +9,5 @@ import javax.enterprise.event.Observes
 class ApplicationLifeCycle {
     fun onStart(@Observes ev: StartupEvent?) {
         println("Running Profile: ${ProfileManager.getActiveProfile()}")
-
-//        MessageListener().listen();
-
     }
 }
